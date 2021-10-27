@@ -26,3 +26,11 @@ func _process(delta):
 		direction -= 1
 		
 	translate(Vector2(1,0) * SPEED * direction * delta)
+	
+	# Set limit to the x axis
+	if get_global_position().x < 8:
+		set_global_position(Vector2(8, get_global_position().y))
+	if get_global_position().x > 172:
+		set_global_position(Vector2(172, get_global_position().y))
+	
+	
