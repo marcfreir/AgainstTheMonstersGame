@@ -12,9 +12,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="sprite" type="Sprite" parent="noah"]
+[node name="mainSprite" type="Sprite" parent="noah"]
 texture = ExtResource( 1 )
 hframes = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="noah"]
+[node name="collisionPolygon" type="CollisionPolygon2D" parent="noah"]
 polygon = PoolVector2Array( 5, -4, 7, -3, 7, -2, 6, 1, 4, 4, -5, 4, -7, 1, -8, -2, -8, -3, -6, -4 )
