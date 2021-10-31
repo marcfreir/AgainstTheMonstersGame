@@ -11,7 +11,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 
-[node name="monsterBSprite" type="Sprite" parent="."]
+[node name="monsterSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 2
 

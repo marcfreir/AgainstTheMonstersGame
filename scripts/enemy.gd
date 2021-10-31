@@ -5,6 +5,7 @@ extends Area2D
 export(int, "A", "B", "C") var type = 0 setget set_type
 
 var score = 0
+var frame = 0
 var monsterSprite
 
 var attributes = [
@@ -31,7 +32,7 @@ func _ready():
 
 func _draw():
 	var attribute = attributes[type]
-	get_node("monsterBSprite").set_texture(attribute.monsterSprite)
+	get_node("monsterSprite").set_texture(attribute.monsterSprite)
 	score = attribute.score
 
 func set_type(value):
@@ -41,3 +42,11 @@ func set_type(value):
 		
 func destroy(object):
 	queue_free()
+
+# Animate monsters sprites
+func next_frame():
+	if frame == 0:
+		frame = 1
+	else:
+		frame = 0
+	get_node("monsterSprite").set_frame(frame)
