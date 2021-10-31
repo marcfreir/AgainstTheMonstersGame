@@ -17,3 +17,12 @@ func _process(delta):
 	
 	if get_global_position().y < 0:
 		queue_free()
+
+
+func _on_noahPower_area_entered(area):
+	if area.has_method("destroy"):
+		area.destroy(self)
+		destroy()
+		
+func destroy():
+	queue_free()

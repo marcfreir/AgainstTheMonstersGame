@@ -38,3 +38,6 @@ func set_type(value):
 	type = value
 	if is_inside_tree() and Engine.editor_hint:
 		update()
+		
+func destroy(object):
+	queue_free()
