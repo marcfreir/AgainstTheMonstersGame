@@ -5,7 +5,7 @@ var previousMonsterPowerRelease = preload("res://scenes/monsterPower.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_node("timerPowerRelease").start()
 
 
 func power_release():
@@ -21,4 +21,5 @@ func power_release():
 
 
 func _on_timerPowerRelease_timeout():
+	get_node("timerPowerRelease").set_wait_time(rand_range(.5, 3))
 	power_release()

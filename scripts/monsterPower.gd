@@ -12,6 +12,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	translate(direction * speed * delta)
+	if get_global_position().y > 265:
+		destroy(self)
 	
 func destroy(object):
 	queue_free()
