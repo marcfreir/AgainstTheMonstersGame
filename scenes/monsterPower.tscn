@@ -25,7 +25,6 @@ tracks/0/keys = {
 
 [node name="monsterPower" type="Area2D"]
 collision_layer = 2
-collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="monsterPowerSprite" type="Sprite" parent="."]
@@ -38,3 +37,5 @@ shape = SubResource( 1 )
 [node name="animationPower" type="AnimationPlayer" parent="."]
 autoplay = "default"
 anims/default = SubResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_monsterPower_area_entered"]

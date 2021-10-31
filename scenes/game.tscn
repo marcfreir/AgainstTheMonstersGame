@@ -3,7 +3,7 @@
 [ext_resource path="res://sprites/noah_sheet_new.png" type="Texture" id=1]
 [ext_resource path="res://scripts/noah.gd" type="Script" id=2]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/monsterPower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/monsterGroup.gd" type="Script" id=4]
 
 [node name="game" type="Node"]
 
@@ -24,126 +24,132 @@ polygon = PoolVector2Array( 5, -4, 7, -3, 7, -2, 6, 1, 4, 4, -5, 4, -7, 1, -8, -
 
 [node name="monsterGroup" type="Node2D" parent="."]
 position = Vector2( 16, 0 )
+script = ExtResource( 4 )
 
-[node name="enemy" parent="monsterGroup" instance=ExtResource( 3 )]
-position = Vector2( 16, 31 )
+[node name="monsters" type="Node2D" parent="monsterGroup"]
+position = Vector2( -16, 0 )
 
-[node name="enemy2" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 32, 31 )
 
-[node name="enemy3" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy2" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 48, 31 )
 
-[node name="enemy4" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy3" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 64, 31 )
 
-[node name="enemy5" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy4" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 80, 31 )
 
-[node name="enemy6" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy5" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 96, 31 )
 
-[node name="enemy7" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy6" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 112, 31 )
 
-[node name="enemy8" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy7" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 128, 31 )
 
-[node name="enemy9" parent="monsterGroup" instance=ExtResource( 3 )]
-position = Vector2( 16, 44 )
-type = 1
+[node name="enemy8" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
+position = Vector2( 144, 31 )
 
-[node name="enemy10" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy9" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 32, 44 )
 type = 1
 
-[node name="enemy11" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy10" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 48, 44 )
 type = 1
 
-[node name="enemy12" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy11" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 64, 44 )
 type = 1
 
-[node name="enemy13" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy12" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 80, 44 )
 type = 1
 
-[node name="enemy14" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy13" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 96, 44 )
 type = 1
 
-[node name="enemy15" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy14" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 112, 44 )
 type = 1
 
-[node name="enemy16" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy15" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 128, 44 )
 type = 1
 
-[node name="enemy17" parent="monsterGroup" instance=ExtResource( 3 )]
-position = Vector2( 16, 56 )
-type = 2
+[node name="enemy16" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
+position = Vector2( 144, 44 )
+type = 1
 
-[node name="enemy18" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy17" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 32, 56 )
 type = 2
 
-[node name="enemy19" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy18" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 48, 56 )
 type = 2
 
-[node name="enemy20" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy19" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 64, 56 )
 type = 2
 
-[node name="enemy21" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy20" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 80, 56 )
 type = 2
 
-[node name="enemy22" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy21" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 96, 56 )
 type = 2
 
-[node name="enemy23" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy22" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 112, 56 )
 type = 2
 
-[node name="enemy24" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy23" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 128, 56 )
 type = 2
 
-[node name="enemy25" parent="monsterGroup" instance=ExtResource( 3 )]
-position = Vector2( 16, 68 )
+[node name="enemy24" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
+position = Vector2( 144, 56 )
 type = 2
 
-[node name="enemy26" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy25" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 32, 68 )
 type = 2
 
-[node name="enemy27" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy26" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 48, 68 )
 type = 2
 
-[node name="enemy28" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy27" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 64, 68 )
 type = 2
 
-[node name="enemy29" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy28" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 80, 68 )
 type = 2
 
-[node name="enemy30" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy29" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 96, 68 )
 type = 2
 
-[node name="enemy31" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy30" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 112, 68 )
 type = 2
 
-[node name="enemy32" parent="monsterGroup" instance=ExtResource( 3 )]
+[node name="enemy31" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
 position = Vector2( 128, 68 )
 type = 2
 
-[node name="monsterPower" parent="." instance=ExtResource( 4 )]
-position = Vector2( 90, 96 )
+[node name="enemy32" parent="monsterGroup/monsters" instance=ExtResource( 3 )]
+position = Vector2( 144, 68 )
+type = 2
+
+[node name="timerPowerRelease" type="Timer" parent="monsterGroup"]
+autostart = true
+
+[connection signal="timeout" from="monsterGroup/timerPowerRelease" to="monsterGroup" method="_on_timerPowerRelease_timeout"]

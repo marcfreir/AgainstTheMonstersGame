@@ -15,3 +15,7 @@ func _process(delta):
 	
 func destroy(object):
 	queue_free()
+
+
+func _on_monsterPower_area_entered(area):
+	print(area)
