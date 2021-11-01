@@ -1,15 +1,19 @@
 extends Area2D
 
+const SPEED = 80
+
 var right
 var left
 
 var direction
-
 var previousRelease = preload("res://scenes/noahPower.tscn")
 var previousPower = false
 var power
 
-const SPEED = 80
+var isAlive = true
+
+signal dead
+signal respawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,3 +49,15 @@ func _process(delta):
 		
 	previousPower = power
 	
+# Destroy the mains character
+func destroy(object):
+	if isAlive:
+		isAlive = false
+		set_process(false)
+		emit_signal("dead")
+		get_node("animationPlayer").play("transformation")
+		yield(get_node("animationPlayer"), "animation_finished")
+		emit_signal("respawn")
+		set_process(true)
+		isAlive = true
+		get_node("mainSprite").set_frame(0)
