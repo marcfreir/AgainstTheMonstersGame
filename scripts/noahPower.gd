@@ -22,7 +22,7 @@ func _process(delta):
 func _on_noahPower_area_entered(area):
 	if area.has_method("destroy"):
 		area.destroy(self)
-		destroy()
+		destroy(self)
 		
-func destroy():
+func destroy(object):
 	queue_free()

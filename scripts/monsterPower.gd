@@ -20,4 +20,6 @@ func destroy(object):
 
 
 func _on_monsterPower_area_entered(area):
-	print(area)
+	if area.has_method("destroy"):
+		area.destroy(self)
+		destroy(self)
