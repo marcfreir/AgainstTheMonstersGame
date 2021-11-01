@@ -204,11 +204,11 @@ position = Vector2( 143, 234 )
 
 [node name="scoreLabel" type="Label" parent="HUD"]
 margin_top = 5.0
-margin_right = 180.0
+margin_right = 176.0
 margin_bottom = 13.0
 custom_fonts/font = SubResource( 2 )
 text = "9999"
-align = 1
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
