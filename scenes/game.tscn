@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/noah_sheet_new.png" type="Texture" id=1]
 [ext_resource path="res://scripts/noah.gd" type="Script" id=2]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/monsterGroup.gd" type="Script" id=4]
 [ext_resource path="res://scenes/barrier.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/game.gd" type="Script" id=6]
+[ext_resource path="res://fonts/prstart.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 7 )
 
 [node name="game" type="Node"]
+script = ExtResource( 6 )
 
 [node name="noah" type="Area2D" parent="."]
 position = Vector2( 90, 260 )
@@ -168,6 +175,19 @@ position = Vector2( 108, 234 )
 
 [node name="barrier4" parent="barriers" instance=ExtResource( 5 )]
 position = Vector2( 143, 234 )
+
+[node name="HUD" type="Node" parent="."]
+
+[node name="scoreLabel" type="Label" parent="HUD"]
+margin_top = 5.0
+margin_right = 180.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 1 )
+text = "9999"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="monsterGroup/timerPowerRelease" to="monsterGroup" method="_on_timerPowerRelease_timeout"]
 [connection signal="timeout" from="monsterGroup/timerMonstersMove" to="monsterGroup" method="_on_timerMonstersMove_timeout"]

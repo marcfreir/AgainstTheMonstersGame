@@ -1,10 +1,13 @@
 extends Node2D
 
+const speed = Vector2(6, 0)
+
 var previousMonsterPowerRelease = preload("res://scenes/monsterPower.tscn")
 var previousMonsterExplosion = preload("res://scenes/monsterExplosion.tscn")
 
 var direction = 1
-const speed = Vector2(6, 0)
+
+signal enemy_down(object)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,6 +54,7 @@ func _on_timerMonstersMove_timeout():
 		translate(speed * direction)
 
 func on_monster_destroyed(monster):
+	emit_signal("enemy_down", monster)
 	var monsterExplosion = previousMonsterExplosion.instance()
 	get_parent().add_child(monsterExplosion)
 	monsterExplosion.set_global_position(monster.get_global_position())
