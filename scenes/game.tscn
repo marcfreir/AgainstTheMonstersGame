@@ -162,6 +162,9 @@ type = 2
 [node name="timerMonstersMove" type="Timer" parent="monsterGroup"]
 autostart = true
 
+[node name="timerMotherShip" type="Timer" parent="monsterGroup"]
+one_shot = true
+
 [node name="barriers" type="Node" parent="."]
 
 [node name="barrier" parent="barriers" instance=ExtResource( 5 )]
@@ -191,3 +194,4 @@ __meta__ = {
 
 [connection signal="timeout" from="monsterGroup/timerPowerRelease" to="monsterGroup" method="_on_timerPowerRelease_timeout"]
 [connection signal="timeout" from="monsterGroup/timerMonstersMove" to="monsterGroup" method="_on_timerMonstersMove_timeout"]
+[connection signal="timeout" from="monsterGroup/timerMotherShip" to="monsterGroup" method="_on_timerMotherShip_timeout"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mother_sheet.png-58e5007e5a4ef98feb89b9cd2d45a48f.stex"
+path="res://.import/motherShip_sheet.png-9aa80b4dacaaa880f7ce0d8258adcfeb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mother_sheet.png"
-dest_files=[ "res://.import/mother_sheet.png-58e5007e5a4ef98feb89b9cd2d45a48f.stex" ]
+source_file="res://sprites/motherShip_sheet.png"
+dest_files=[ "res://.import/motherShip_sheet.png-9aa80b4dacaaa880f7ce0d8258adcfeb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

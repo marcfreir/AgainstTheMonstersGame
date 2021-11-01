@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/motherShip_sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/motherShip.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("motherShipSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "runMotherShip"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 190, 18 ), Vector2( -8, 18 ) ]
+}
+
+[node name="motherShip" type="Area2D"]
+position = Vector2( 190, 18 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="motherShipSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="animationMotherShip" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 1 )
+
+[node name="collisionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 2.48517, -3.01795, 2.49622, -2.00149, 4.48496, -2.00149, 4.49601, 0.00934815, 7.50121, 0.0203967, 7.49136, 1.01361, 6.48438, 1.02344, 6.48438, 1.97656, 5.5, 2, 5.5, 4, 2.51427, 4.0195, 2.48477, 1.98427, 0.5, 2, 0.484375, 3, -0.515625, 3.00781, -0.509078, 1.99902, -2.48438, 2.01563, -2.49219, 4.00781, -5.51539, 4.01283, -5.51539, 2.02185, -6.50636, 2.00333, -6.50636, 0.986865, -7.51178, 0.986865, -7.48968, -0.0185521, -4.51762, -0.00750357, -4.51563, -2.01563, -2.5, -2.00781, -2.49892, -2.99969 )
+
+[node name="animationMSRun" type="AnimationPlayer" parent="."]
+anims/runMotherShip = SubResource( 2 )
