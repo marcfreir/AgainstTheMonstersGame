@@ -42,5 +42,7 @@ func _on_timerMonstersMove_timeout():
 	
 	if border:
 		translate(Vector2(0, 8))
+		if get_node("timerMonstersMove").get_wait_time() > .3:
+			get_node("timerMonstersMove").set_wait_time(get_node("timerMonstersMove").get_wait_time() - .05)
 	else:
 		translate(speed * direction)
