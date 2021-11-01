@@ -8,6 +8,8 @@ var score = 0
 var frame = 0
 var monsterSprite
 
+signal animation_destroyed(object)
+
 var attributes = [
 	{
 		monsterSprite = preload("res://sprites/monsterA_sheet.png"),
@@ -41,6 +43,7 @@ func set_type(value):
 		update()
 		
 func destroy(object):
+	emit_signal("animation_destroyed", self)
 	queue_free()
 
 # Animate monsters sprites
