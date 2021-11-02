@@ -1,5 +1,9 @@
 extends Node
 
+const extraLifePoints = [1000, 5000, 10000]
+
+var extraLifeIndex = 0
+
 var score = 0
 
 var playerLives = 3
@@ -17,6 +21,10 @@ func _ready():
 
 func on_monsterGroup_enemy_down(monster):
 	score += monster.score
+	if extraLifeIndex < extraLifePoints.size() and score >= extraLifePoints[extraLifeIndex]:
+		playerLives += 1
+		get_node("HUD/showLife").playerLives = playerLives
+		extraLifeIndex += 1
 	update_score()
 
 func on_monsterGroup_enemy_ready():
