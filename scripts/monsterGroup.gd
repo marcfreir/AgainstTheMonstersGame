@@ -11,6 +11,7 @@ var direction = 1
 signal enemy_down(object)
 signal enemy_ready
 signal area_conquered
+signal victory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,10 +32,11 @@ func _ready():
 
 func power_release():
 	var numMonsters = get_node("monsters").get_child_count()
-	var monster = get_node("monsters").get_child(randi() % numMonsters)
-	var monsterPowerRelease = previousMonsterPowerRelease.instance()
-	get_parent().add_child(monsterPowerRelease)
-	monsterPowerRelease.set_global_position(monster.get_global_position())
+	if numMonsters > 0:
+		var monster = get_node("monsters").get_child(randi() % numMonsters)
+		var monsterPowerRelease = previousMonsterPowerRelease.instance()
+		get_parent().add_child(monsterPowerRelease)
+		monsterPowerRelease.set_global_position(monster.get_global_position())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -74,6 +76,9 @@ func on_monster_destroyed(monster):
 	var monsterExplosion = previousMonsterExplosion.instance()
 	get_parent().add_child(monsterExplosion)
 	monsterExplosion.set_global_position(monster.get_global_position())
+	if get_node("monsters").get_child_count() == 1:
+		stop_all()
+		emit_signal("victory")
 
 
 func _on_timerMotherShip_timeout():
