@@ -53,3 +53,8 @@ func next_frame():
 	else:
 		frame = 0
 	get_node("monsterSprite").set_frame(frame)
+
+
+func _on_enemy_area_entered(area):
+	if area.has_method("destroy"):
+		area.destroy(self)

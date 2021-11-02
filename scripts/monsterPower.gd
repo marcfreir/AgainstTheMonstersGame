@@ -6,6 +6,7 @@ const direction = Vector2(0,1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("MONSTER_POWER")
 	set_process(true)
 
 

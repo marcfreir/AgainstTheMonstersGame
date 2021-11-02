@@ -9,13 +9,24 @@ var previousMotherShip = preload("res://scenes/motherShip.tscn")
 var direction = 1
 
 signal enemy_down(object)
+signal enemy_ready
+signal area_conquered
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("timerPowerRelease").start()
+	#get_node("timerPowerRelease").start()
 	restart_timer_motherShip()
 	for monster in get_node("monsters").get_children():
+		monster.hide()
 		monster.connect("animation_destroyed", self, "on_monster_destroyed")
+		
+	for monster in get_node("monsters").get_children():
+		get_node("timerMonstersPause").start()
+		yield(get_node("timerMonstersPause"), "timeout")
+		monster.show()
+	
+	emit_signal("enemy_ready")
+	start_all()
 
 
 func power_release():
@@ -47,6 +58,9 @@ func _on_timerMonstersMove_timeout():
 		if monster.get_global_position().x < 10 and direction < 0:
 			direction = 1
 			border = true
+		
+		if monster.get_global_position().y > 260:
+			emit_signal("area_conquered")
 	
 	if border:
 		translate(Vector2(0, 8))
