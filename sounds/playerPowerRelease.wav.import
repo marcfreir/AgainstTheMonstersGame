@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/playerPowerRelease.wav-6f19427f52956704e94e8ac1a64680ea.sample"
+
+[deps]
+
+source_file="res://sounds/playerPowerRelease.wav"
+dest_files=[ "res://.import/playerPowerRelease.wav-6f19427f52956704e94e8ac1a64680ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

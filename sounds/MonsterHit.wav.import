@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MonsterHit.wav-ab7d4664b10421ed36ed3826499a7baf.sample"
+
+[deps]
+
+source_file="res://sounds/MonsterHit.wav"
+dest_files=[ "res://.import/MonsterHit.wav-ab7d4664b10421ed36ed3826499a7baf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

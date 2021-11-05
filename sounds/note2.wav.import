@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/note2.wav-a984b53f5e9331b3fd041c529f3b259b.sample"
+
+[deps]
+
+source_file="res://sounds/note2.wav"
+dest_files=[ "res://.import/note2.wav-a984b53f5e9331b3fd041c529f3b259b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

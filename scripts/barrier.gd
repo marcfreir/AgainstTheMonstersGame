@@ -3,9 +3,12 @@ extends Area2D
 var barrierHit = 0
 
 func destroy(object):
+	$audioBarrierHit.play()
 	barrierHit += 1
-	if barrierHit > 5:
+	if barrierHit >= 5:
 		queue_free()
+	#else:
+		#get_node("barrierSprite").set_frame(barrierHit)
 	get_node("barrierSprite").set_frame(barrierHit)
 
 

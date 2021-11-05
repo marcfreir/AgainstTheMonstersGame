@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/barrier_sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/barrier.gd" type="Script" id=2]
+[ext_resource path="res://sounds/MonsterHit.wav" type="AudioStream" id=3]
 
 [node name="barrier" type="Area2D"]
 collision_layer = 7
@@ -14,3 +15,8 @@ hframes = 6
 
 [node name="collisionPolygon" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 5, -5, 5, -1, 6, -1, 6, 0, 7, 0, 7, 2, 8, 2, 8, 5, -8, 5, -8, 2, -7, 2, -7, 0, -6, 0, -6, -1, -5, -1, -5, -5, -3, -5, -3, -4, -2, -4, -2, -3, 2, -3, 2, -4, 3, -4, 3, -5 )
+
+[node name="audioBarrierHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+bus = "fx"
