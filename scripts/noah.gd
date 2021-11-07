@@ -43,7 +43,7 @@ func _process(delta):
 	if get_global_position().x > 172:
 		set_global_position(Vector2(172, get_global_position().y))
 		
-	if power and not previousPower and get_tree().get_nodes_in_group("noahPower").size() == 0:
+	if power and not previousPower and get_tree().get_nodes_in_group("noahPower").size() < 100:
 		$audioPlayerPowerRelease.play()
 		var release = previousRelease.instance()
 		get_parent().add_child(release)
