@@ -3,10 +3,6 @@ extends Node
 var previousGame = preload("res://scenes/game.tscn")
 var game
 
-var extraLifeIndex = 0
-var score = 0
-var playerLives = 3
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,11 +26,7 @@ func on_game_over():
 	get_node("btnNewGame").show()
 
 func on_victory():
-	extraLifeIndex = game.extraLifeIndex
-	score = game.score
-	playerLives = game.playerLives
+	var gameData = game.gameData
 	new_game()
-	game.extraLifeIndex = extraLifeIndex
-	game.score = score
-	game.playerLives = playerLives
-	game.update_HUD()
+	game.gameData = gameData
+
