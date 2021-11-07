@@ -13,7 +13,13 @@ func new_game():
 	if game != null:
 		game.queue_free()
 	game = previousGame.instance()
-	add_child(game)
+	
+	# Give me an error
+	#add_child(game)
+	
+	# Replacement/Update
+	call_deferred("add_child", game)
+	
 	game.connect("game_over", self, "on_game_over")
 	game.connect("victory", self, "on_victory")
 
