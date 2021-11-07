@@ -8,6 +8,8 @@ var score = 0
 
 var playerLives = 3
 
+signal game_over
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -57,3 +59,4 @@ func on_player_respawn():
 func game_over():
 	get_node("monsterGroup").stop_all()
 	get_node("player").disable()
+	emit_signal("game_over")
