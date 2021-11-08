@@ -27,7 +27,7 @@ func _process(delta):
 	direction = 0
 	right = Input.is_action_pressed("ui_right")
 	left = Input.is_action_pressed("ui_left")
-	power = Input.is_action_pressed("throw")
+	power = Input.is_action_pressed("release")
 	
 	if right:
 		direction += 1
