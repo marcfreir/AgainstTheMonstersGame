@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/nameSelector.gd" type="Script" id=2]
 
 [node name="nameSelector" type="Node"]
+script = ExtResource( 2 )
 
 [node name="boxContainer" type="HBoxContainer" parent="."]
 margin_right = 180.0
@@ -44,3 +46,9 @@ custom_fonts/font = ExtResource( 1 )
 text = "A"
 align = 1
 valign = 1
+
+[node name="nameTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="nameTimer" to="." method="_on_nameTimer_timeout"]
