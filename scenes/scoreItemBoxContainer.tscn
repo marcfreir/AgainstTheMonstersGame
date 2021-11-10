@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/scoreItemBoxContainer.gd" type="Script" id=2]
+
+[node name="scoreItemBoxContainer" type="HBoxContainer"]
+margin_right = 180.0
+margin_bottom = 11.0
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rank" type="Label" parent="."]
+margin_left = 17.0
+margin_right = 59.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 42, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "1ST"
+
+[node name="name" type="Label" parent="."]
+margin_left = 63.0
+margin_right = 93.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "ABC"
+align = 1
+
+[node name="score" type="Label" parent="."]
+margin_left = 97.0
+margin_right = 162.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 65, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "999999"
+align = 2
