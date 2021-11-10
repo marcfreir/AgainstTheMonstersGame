@@ -21,6 +21,7 @@ var high_score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("highScore").show_highScores(highScores)
 	pass
 
 
@@ -41,6 +42,7 @@ func new_game():
 
 func _on_Button_pressed():
 	get_node("btnNewGame").hide()
+	get_node("highScore").hide()
 	new_game()
 	
 func on_game_over():
