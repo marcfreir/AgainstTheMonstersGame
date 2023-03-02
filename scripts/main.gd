@@ -30,6 +30,7 @@ func new_game():
 		game.queue_free()
 	game = previousGame.instance()
 	
+	get_node("gameNode").add_child(game)
 	# Give me an error
 	#add_child(game)
 	

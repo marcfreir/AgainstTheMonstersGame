@@ -10,6 +10,8 @@ font_data = ExtResource( 3 )
 [node name="main" type="Node"]
 script = ExtResource( 1 )
 
+[node name="gameNode" type="Node" parent="."]
+
 [node name="btnNewGame" type="Button" parent="."]
 margin_left = 48.0
 margin_top = 280.0
