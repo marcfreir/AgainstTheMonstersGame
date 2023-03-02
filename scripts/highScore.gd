@@ -20,9 +20,21 @@ func test():
 		yield(get_node("highScoreTimer"), "timeout")
 
 func show_highScores(highScore):
+	#class_name = HBoxContainer
+	for hsItem in get_children():
+		if hsItem is HBoxContainer:
+			hsItem.queue_free()
+	
+	#Header for the high score
+	var item = previousItem.instance()
+	item.playerRank = "RANK"
+	item.playerName = "NAME"
+	item.playerScore = "SCORE"
+	add_child(item)
+	
 	var nextRank = 0
 	for hs in highScore:
-		var item = previousItem.instance()
+		item = previousItem.instance()
 		item.playerRank = playersRank[nextRank]
 		item.playerName = hs.name
 		item.playerScore = hs.score

@@ -19,11 +19,9 @@ margin_bottom = 11.0
 rect_min_size = Vector2( 42, 0 )
 custom_fonts/font = ExtResource( 1 )
 text = "1ST"
-align = 2
+align = 1
 
 [node name="name" type="Label" parent="."]
-anchor_left = 0.0388889
-anchor_right = 0.0388889
 margin_left = 63.0
 margin_right = 93.0
 margin_bottom = 11.0
@@ -37,5 +35,5 @@ margin_right = 162.0
 margin_bottom = 11.0
 rect_min_size = Vector2( 65, 0 )
 custom_fonts/font = ExtResource( 1 )
-text = "99999"
+text = "999999"
 align = 2

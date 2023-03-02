@@ -61,6 +61,8 @@ func on_game_over():
 		nameSelector.queue_free()
 		
 	get_node("btnNewGame").show()
+	get_node("highScore").show()
+	get_node("highScore").show_highScores(highScores)
 
 func on_victory():
 	var gameData = game.gameData
