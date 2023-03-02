@@ -70,6 +70,7 @@ func on_player_respawn():
 func game_over():
 	get_node("monsterGroup").stop_all()
 	get_node("player").disable()
+	get_node("player").queue_free()
 	emit_signal("game_over")
 
 func set_gameData(value):
