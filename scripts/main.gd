@@ -1,5 +1,7 @@
 extends Node
 
+const HIGHSCORE_FILE = "user://highscore_file.mkf"
+
 var previousNameSelector = preload("res://scenes/nameSelector.tscn")
 var previousGame = preload("res://scenes/game.tscn")
 var game
@@ -35,7 +37,7 @@ func new_game():
 	#add_child(game)
 	
 	# Replacement/Update
-	call_deferred("add_child", game)
+	#call_deferred("add_child", game)
 	
 	game.connect("game_over", self, "on_game_over")
 	game.connect("victory", self, "on_victory")
@@ -61,6 +63,8 @@ func on_game_over():
 		print("finished")
 		nameSelector.queue_free()
 		
+		save_highScore()
+		
 	get_node("btnNewGame").show()
 	get_node("highScore").show()
 	get_node("highScore").show_highScores(highScores)
@@ -76,3 +80,14 @@ func on_nameSelector_finished(playerNameValue):
 	highScores.insert(highScoresIndex, {name = playerNameValue, score = game.gameData.score})
 	highScores.resize(10)
 	#print(highScores)
+
+func save_highScore():
+	var hsFile = File.new()
+	var result = hsFile.open(HIGHSCORE_FILE, hsFile.WRITE)
+	
+	if result == OK:
+		var storeHighScore = {
+			highScoreList = highScores
+		}
+		hsFile.store_string(to_json(storeHighScore))
+		hsFile.close()
