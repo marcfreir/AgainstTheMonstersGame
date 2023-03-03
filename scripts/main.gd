@@ -5,6 +5,8 @@ const HIGHSCORE_FILE = "user://highscore_file.mkf"
 var previousNameSelector = preload("res://scenes/nameSelector.tscn")
 var previousGame = preload("res://scenes/game.tscn")
 var game
+var password = [52, 67, 78, 49, 42, 102, 95, 83, 73, 119, 123, 38]
+#var passList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 var highScores = [
 	{name = "AAA", score = 1000},
@@ -21,8 +23,32 @@ var highScores = [
 
 var high_score
 
+func randomNumbers(passworList):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	#Range of characters in the ASCII table
+	#print(rng.randi_range(33, 126))
+	#var randomNUmber = rng.randi_range(33, 126)
+	#print(randomNUmber)
+	
+	#passworList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	
+	var newPassList = []
+	
+	for element in passworList:
+		var randomNumber = rng.randi_range(33, 126)
+		#print(randomNumber)
+		newPassList.append(randomNumber)
+	
+	print(newPassList)
+	#print(passworList)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#var pl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	#randomNumbers(pl)
+	
+	#print(PoolByteArray(password).get_string_from_utf8())
 	load_highScore()
 	get_node("highScore").show_highScores(highScores)
 
@@ -83,7 +109,11 @@ func on_nameSelector_finished(playerNameValue):
 
 func save_highScore():
 	var hsFile = File.new()
-	var result = hsFile.open(HIGHSCORE_FILE, hsFile.WRITE)
+	#var result = hsFile.open(HIGHSCORE_FILE, hsFile.WRITE)
+	
+	#var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.WRITE, PoolByteArray(password).get_string_from_utf8())
+	var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.WRITE, PoolByteArray(password).get_string_from_utf8())
+	print(result)
 	
 	if result == OK:
 		var storeHighScore = {
@@ -97,7 +127,8 @@ func save_highScore():
 
 func load_highScore():
 	var hsFile = File.new()
-	var result = hsFile.open(HIGHSCORE_FILE, hsFile.READ)
+	#var result = hsFile.open(HIGHSCORE_FILE, hsFile.READ)
+	var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.READ, PoolByteArray(password).get_string_from_utf8())
 	
 	if result == OK:
 		var textHighScore = hsFile.get_as_text()
