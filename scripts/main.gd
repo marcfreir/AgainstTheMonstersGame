@@ -23,8 +23,8 @@ var high_score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_highScore()
 	get_node("highScore").show_highScores(highScores)
-	pass
 
 
 func new_game():
@@ -89,5 +89,106 @@ func save_highScore():
 		var storeHighScore = {
 			highScoreList = highScores
 		}
-		hsFile.store_string(to_json(storeHighScore))
+		#hsFile.store_string(to_json(storeHighScore))
+		hsFile.store_string(JSON.print(storeHighScore))
 		hsFile.close()
+
+
+
+func load_highScore():
+	var hsFile = File.new()
+	var result = hsFile.open(HIGHSCORE_FILE, hsFile.READ)
+	
+	if result == OK:
+		var textHighScore = hsFile.get_as_text()
+		#var storeHighScore = {}
+		#storeHighScore.parse_json(textHighScore)
+		#var storeHighScore = JSON.parse(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		
+		#var newDict = "{" + textHighScore + "}"
+		#var storeHighScore = parse_json(newDict)
+		
+		var storeHighScore = parse_json(textHighScore)
+		print(storeHighScore)
+		print("shawaska")
+		highScores = storeHighScore.highScoreList
+		hsFile.close()
+
+
+
+
+
+
+
+
+
+
+
+
+#func load_highScore():
+	#var hsFile = File.new()
+	#var result = hsFile.open(HIGHSCORE_FILE, hsFile.READ)
+	
+	#if result == OK:
+		#var textHighScore = hsFile.get_as_text()
+		#var storeHighScore = {}
+		#storeHighScore.parse_json(textHighScore)
+		#var data = parse_json(textHighScore)
+		#var fdata = storeHighScore.data
+		#highScores = fdata.highScoreList
+		#highScores = storeHighScore.highScoreList
+		
+		#var storeHighScore = JSON.parse(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		#hsFile.close()
+		
+	#if result == OK:
+		#var textHighScore = hsFile.get_as_text()
+		#var storeHighScore = {}
+		#var resultJSON = JSON.parse(textHighScore)
+		#var finalData = resultJSON.storeHighScore
+		#highScores = finalData.highScoreList
+		
+		#hsFile.close()
+		#storeHighScore.parse_json(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		
+		#var storeHighScore = JSON.parse(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		#hsFile.close()
+
+
+	
+	#var resultJSON = JSON.parse(result)
+	#var storeHighScore = {}
+	
+	#if resultJSON == OK:
+		#highScores = storeHighScore.highScoreList
+		#hsFile.close()
+	
+	###NEW TRY
+	
+#func load_highScore():
+	#var hsFile = File.new()
+	#var result = hsFile.open(HIGHSCORE_FILE, File.READ)
+	
+	#if result == OK:
+		#var data = parse_json(hsFile.get_as_text())
+		#hsFile.close()
+
+	
+		#var textHighScore = parse_json(hsFile.get_as_text())
+		#var textHighScore = hsFile.get_as_text()
+		#var storeHighScore = {}
+		#var data = parse_json(hsFile.get_as_text())
+		#storeHighScore.textHighScore
+		#var data = parse_json(hsFile.get_as_text())
+		#var textHighScore = hsFile.get_as_text()
+		#var storeHighScore = {}
+		#storeHighScore.parse_json(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		
+		#var storeHighScore = JSON.parse(textHighScore)
+		#highScores = storeHighScore.highScoreList
+		#hsFile.close()
