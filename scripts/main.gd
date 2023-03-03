@@ -6,7 +6,6 @@ var previousNameSelector = preload("res://scenes/nameSelector.tscn")
 var previousGame = preload("res://scenes/game.tscn")
 var game
 var password = [52, 67, 78, 49, 42, 102, 95, 83, 73, 119, 123, 38]
-#var passList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 var highScores = [
 	{name = "AAA", score = 1000},
@@ -23,32 +22,9 @@ var highScores = [
 
 var high_score
 
-func randomNumbers(passworList):
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	#Range of characters in the ASCII table
-	#print(rng.randi_range(33, 126))
-	#var randomNUmber = rng.randi_range(33, 126)
-	#print(randomNUmber)
-	
-	#passworList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-	
-	var newPassList = []
-	
-	for element in passworList:
-		var randomNumber = rng.randi_range(33, 126)
-		#print(randomNumber)
-		newPassList.append(randomNumber)
-	
-	print(newPassList)
-	#print(passworList)
-	
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var pl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-	#randomNumbers(pl)
-	
-	#print(PoolByteArray(password).get_string_from_utf8())
 	load_highScore()
 	get_node("highScore").show_highScores(highScores)
 
@@ -58,7 +34,11 @@ func new_game():
 		game.queue_free()
 	game = previousGame.instance()
 	
-	get_node("gameNode").add_child(game)
+	#Giving ERROR: Can't change this state while flushing queries.
+	#get_node("gameNode").add_child(game)
+	# Replacement/Update
+	get_node("gameNode").call_deferred("add_child", game)
+	
 	# Give me an error
 	#add_child(game)
 	
@@ -109,9 +89,9 @@ func on_nameSelector_finished(playerNameValue):
 
 func save_highScore():
 	var hsFile = File.new()
+	#Save standard file
 	#var result = hsFile.open(HIGHSCORE_FILE, hsFile.WRITE)
-	
-	#var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.WRITE, PoolByteArray(password).get_string_from_utf8())
+	#Save encrypted file
 	var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.WRITE, PoolByteArray(password).get_string_from_utf8())
 	print(result)
 	
@@ -119,15 +99,17 @@ func save_highScore():
 		var storeHighScore = {
 			highScoreList = highScores
 		}
-		#hsFile.store_string(to_json(storeHighScore))
-		hsFile.store_string(JSON.print(storeHighScore))
+		hsFile.store_string(to_json(storeHighScore))
+		#hsFile.store_string(JSON.print(storeHighScore))
 		hsFile.close()
 
 
 
 func load_highScore():
 	var hsFile = File.new()
+	#Load standard file
 	#var result = hsFile.open(HIGHSCORE_FILE, hsFile.READ)
+	#Load encrypted file
 	var result = hsFile.open_encrypted_with_pass(HIGHSCORE_FILE, hsFile.READ, PoolByteArray(password).get_string_from_utf8())
 	
 	if result == OK:
