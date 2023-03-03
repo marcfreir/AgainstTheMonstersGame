@@ -37,11 +37,15 @@ func _process(delta):
 		
 	translate(Vector2(1,0) * SPEED * direction * delta)
 	
-	# Set limit to the x axis
-	if get_global_position().x < 8:
-		set_global_position(Vector2(8, get_global_position().y))
-	if get_global_position().x > 172:
-		set_global_position(Vector2(172, get_global_position().y))
+#	# Set limit to the x axis ("if" version)
+#	if get_global_position().x < 8:
+#		set_global_position(Vector2(8, get_global_position().y))
+#	if get_global_position().x > 172:
+#		set_global_position(Vector2(172, get_global_position().y))
+
+	# Set limit to the x axis ("clamp" version)
+	set_global_position(Vector2(clamp(get_global_position().x, 8, ProjectSettings.get("display/window/size/width") - 7), get_global_position().y))
+	
 		
 	if power and not previousPower and get_tree().get_nodes_in_group("noahPower").size() < 100:
 		$audioPlayerPowerRelease.play()
