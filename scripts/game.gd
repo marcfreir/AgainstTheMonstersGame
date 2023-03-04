@@ -1,6 +1,6 @@
 extends Node
 
-const extraLifePoints = [1000, 5000, 10000]
+const extraLifePoints = [1000, 5000, 10000, 50000]
 
 var gameData = {
 	extraLifeIndex = 0,

@@ -13,7 +13,7 @@ signal animation_destroyed(object)
 var attributes = [
 	{
 		monsterSprite = preload("res://sprites/monsterA_sheet.png"),
-		score = 10
+		score = 30
 	},
 	{
 		monsterSprite = preload("res://sprites/monsterB_sheet.png"),
@@ -21,7 +21,7 @@ var attributes = [
 	},
 	{
 		monsterSprite = preload("res://sprites/monsterC_sheet.png"),
-		score = 30
+		score = 10
 	}
 		
 ]
