@@ -14,6 +14,7 @@ signal victory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$backgroundMusicAudioStreamPlayer.play()
 	randomize()
 	update_score()
 	get_node("monsterGroup").connect("enemy_down", self, "on_monsterGroup_enemy_down")
@@ -68,6 +69,7 @@ func on_player_respawn():
 
 
 func game_over():
+	$backgroundMusicAudioStreamPlayer.stop()
 	get_node("monsterGroup").stop_all()
 	get_node("player").disable()
 	get_node("player").queue_free()

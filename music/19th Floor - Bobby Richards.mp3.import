@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/19th Floor - Bobby Richards.mp3-ad2d790b3404d3bc81865768f4324245.mp3str"
+
+[deps]
+
+source_file="res://music/19th Floor - Bobby Richards.mp3"
+dest_files=[ "res://.import/19th Floor - Bobby Richards.mp3-ad2d790b3404d3bc81865768f4324245.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

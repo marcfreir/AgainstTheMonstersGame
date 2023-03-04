@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/19th-Floor-Bobby-Richards.ogg-9bfbb930040098e06db08cd3e1a81e88.oggstr"
+
+[deps]
+
+source_file="res://music/19th-Floor-Bobby-Richards.ogg"
+dest_files=[ "res://.import/19th-Floor-Bobby-Richards.ogg-9bfbb930040098e06db08cd3e1a81e88.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
