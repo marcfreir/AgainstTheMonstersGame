@@ -28,3 +28,12 @@ Developer: Marc Freir @ QuarksDev - 2023
 <!--Telegram-->
 <a href="https://t.me/quarksdev"><img src="https://img.shields.io/badge/-Marc@Quarks%20Dev-6200e1?style=flat-square&logo=Telegram&logoColor=white&link=https://t.me/quarksdev" alt="https://t.me/quarksdev" /></a>
 </div>
+
+
+<div align="center">
+
+> SCREENSHOTS
+
+<img src="./screenshots/rank.png" alt="Agains The Monsters logo" />
+<img src="./screenshots/gamePlay.png" alt="Agains The Monsters logo" />
+</div>
