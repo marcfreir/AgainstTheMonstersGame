@@ -17,6 +17,7 @@ Engine: Godot 3.5.1
 Creation of icons & images: Inkscape 1.2 & Paint.net 5.0.2
 Editing extra files: VS Code 1.76.0
 Favicon: realfavicongenerator.net
+Developer: Marc Freir @ QuarksDev - 2023
 ```
 > Licence: BSD 3-Clause
 
