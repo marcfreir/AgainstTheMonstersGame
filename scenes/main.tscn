@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/highScore.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/prstart.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sprites/noahLogo.svg" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -24,7 +25,13 @@ __meta__ = {
 }
 
 [node name="highScore" parent="." instance=ExtResource( 2 )]
-margin_top = 104.0
+margin_top = 120.0
 margin_bottom = 256.0
+
+[node name="logoGame" type="Sprite" parent="."]
+position = Vector2( 14, 0 )
+scale = Vector2( 0.527473, 0.527472 )
+texture = ExtResource( 4 )
+centered = false
 
 [connection signal="pressed" from="btnNewGame" to="." method="_on_Button_pressed"]

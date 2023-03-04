@@ -52,6 +52,7 @@ func new_game():
 func _on_Button_pressed():
 	get_node("btnNewGame").hide()
 	get_node("highScore").hide()
+	get_node("logoGame").hide()
 	new_game()
 	
 func on_game_over():
